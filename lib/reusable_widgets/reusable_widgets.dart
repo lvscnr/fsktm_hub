@@ -14,8 +14,8 @@ Image logoWidgetSplash(String imageName) {
   return Image.asset(
     imageName,
     fit: BoxFit.fitWidth,
-    width: 200,
-    height: 200,
+    width: 300,
+    height: 300,
   );
 }
 
@@ -74,7 +74,7 @@ Container reusableButton(BuildContext context, bool isLogin, Function onTap) {
             if (states.contains(MaterialState.pressed)) {
               return Colors.black26;
             }
-            return Color.fromARGB(255, 209, 118, 124);
+            return const Color.fromARGB(255, 209, 118, 124);
           },
         ),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -86,7 +86,7 @@ Container reusableButton(BuildContext context, bool isLogin, Function onTap) {
       child: Text(
         isLogin ? 'Sign In' : 'Sign Up',
         style: GoogleFonts.poppins(
-          color: Color.fromARGB(255, 255, 255, 255),
+          color: const Color.fromARGB(255, 255, 255, 255),
           fontWeight: FontWeight.w700,
           fontSize: 16,
         ),
