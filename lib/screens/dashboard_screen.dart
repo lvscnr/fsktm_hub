@@ -45,12 +45,12 @@ class _DashboardState extends State<Dashboard> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ElevatedButton(
-            child: const Text('Block B'),
+            child: const Text('Block A'),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const blockB(),
+                  builder: (context) => const blockA(),
                 ),
               );
             },
@@ -61,7 +61,7 @@ class _DashboardState extends State<Dashboard> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const blockA(),
+                  builder: (context) => const blockB(),
                 ),
               );
             },
