@@ -71,7 +71,7 @@ Material displayimage1(BuildContext context) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const blockA(),
+            builder: (context) => const BlockA(),
           ),
         );
       },
@@ -109,7 +109,7 @@ Material displayimage2(BuildContext context) {
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => const blockB(),
+            builder: (context) => const BlockB(),
           ),
         );
       },
