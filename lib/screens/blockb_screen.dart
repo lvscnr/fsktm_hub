@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:pinch_scrollable/pinch_scrollable.dart';
 
 @immutable
-class BlockB {
-  const BlockB({
+class BlockBDetails {
+  const BlockBDetails({
     required this.title,
     required this.details,
     required this.imageUrl,
@@ -15,8 +15,8 @@ class BlockB {
   final String imageUrl;
 }
 
-class MyListPage extends StatelessWidget {
-  const MyListPage({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,22 +26,21 @@ class MyListPage extends StatelessWidget {
           title: Text('Block B'),
         ),
         backgroundColor: Colors.white70,
-        body: _BlockB(),
+        body: _BlockBList(),
       ),
     );
   }
 }
 
-class _BlockB extends StatelessWidget {
-  const _BlockB({Key? key}) : super(key: key);
+class _BlockBList extends StatelessWidget {
+  const _BlockBList({Key? key}) : super(key: key);
 
-  static const _blockB = const <BlockBDetails>[
+  static const _blockBs = const <BlockBDetails>[
     const BlockBDetails(
-      title: 'B-3-21',
-      details:
-          'Dr. Nornazlita Hussin',
+      title: 'Dewan Kuliah 2',
+      details: ' ',
       imageUrl:
-          'https://image.wmsm.co/eef1ef270f8045c067c3646caa7047b3/louvre-museum-paris-1.jpg?quality=80&width=1280',
+          'https://image.wmsm.co/644942ebccdd976e0a4cf9b86844216b/musee-rodin-paris-1.jpg?quality=80&width=1280',
     ),
     const BlockBDetails(
       title: 'Musée Rodin',
@@ -61,32 +60,34 @@ class _BlockB extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: _museums.length,
-      itemBuilder: (BuildContext context, int index) {
-        final details = _museums[index];
-        final imageKey = GlobalKey();
-        return PinchItemContainer(
-          imageWidgetKey: imageKey,
-          imageUrl: details.imageUrl,
-          child: MuseumDetailsWidgetMuseum(
-            museum: details,
-            imageKey: imageKey,
-          ),
-        );
-      },
+    return Center(
+      child: ListView.builder(
+        itemCount: _blockBs.length,
+        itemBuilder: (BuildContext context, int index) {
+          final blockB = _blockBs[index];
+          final imageKey = GlobalKey();
+          return PinchItemContainer(
+            imageWidgetKey: imageKey,
+            imageUrl: blockB.imageUrl,
+            child: BlockBDetailsWidgetBlockB(
+              blockB: blockB,
+              imageKey: imageKey,
+            ),
+          );
+        },
+      ),
     );
   }
 }
 
-class MuseumDetailsWidgetMuseum extends StatelessWidget {
-  const MuseumDetailsWidgetMuseum({
+class BlockBDetailsWidgetBlockB extends StatelessWidget {
+  const BlockBDetailsWidgetBlockB({
     Key? key,
-    required this.museum,
+    required this.blockB,
     required this.imageKey,
   }) : super(key: key);
 
-  final MuseumDetails museum;
+  final BlockBDetails blockB;
   final GlobalKey imageKey;
 
   @override
@@ -99,18 +100,18 @@ class MuseumDetailsWidgetMuseum extends StatelessWidget {
           children: [
             CachedNetworkImage(
               key: imageKey,
-              imageUrl: museum.imageUrl,
+              imageUrl: blockB.imageUrl,
               fit: BoxFit.cover,
             ),
             const SizedBox(height: 8),
             Text(
-              museum.title,
+              blockB.title,
               textAlign: TextAlign.start,
               style: Theme.of(context).textTheme.headline5,
             ),
             const SizedBox(height: 8),
             Text(
-              museum.details,
+              blockB.details,
               textAlign: TextAlign.start,
             ),
           ],
