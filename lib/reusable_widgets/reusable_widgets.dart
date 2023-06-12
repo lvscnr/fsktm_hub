@@ -60,48 +60,6 @@ class CustomShape extends CustomClipper<Path> {
   }
 }
 
-Widget buildImageCard1() => Card(
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24),
-      ),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          blockPicture("assets/images/b-1-5.jpg"),
-          Text(
-            'Block B',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: 24,
-            ),
-          ),
-        ],
-      ),
-    );
-
-Widget buildImageCard2() => Card(
-      clipBehavior: Clip.antiAlias,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(24),
-      ),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          blockPicture("assets/images/b-1-4.jpg"),
-          Text(
-            'Block B',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontSize: 24,
-            ),
-          ),
-        ],
-      ),
-    );
-
 Material displayimage1(BuildContext context) {
   return Material(
     elevation: 10,
