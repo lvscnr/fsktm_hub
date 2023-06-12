@@ -1,33 +1,29 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:pinch_scrollable/pinch_scrollable.dart';
 
 @immutable
 class BlockBDetails {
   const BlockBDetails({
     required this.title,
     required this.details,
-    required this.imageUrl,
+    required this.imageName,
   });
 
   final String title;
   final String details;
-  final String imageUrl;
+  final String imageName;
 }
 
-class blockB extends StatelessWidget {
-  const blockB({Key? key}) : super(key: key);
+class BlockB extends StatelessWidget {
+  const BlockB({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return PinchScrollableArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('Block B'),
-        ),
-        backgroundColor: Colors.white70,
-        body: _BlockBList(),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Block B'),
       ),
+      backgroundColor: Colors.white70,
+      body: _BlockBList(),
     );
   }
 }
@@ -39,22 +35,28 @@ class _BlockBList extends StatelessWidget {
     const BlockBDetails(
       title: 'Dewan Kuliah 2',
       details: ' ',
-      imageUrl:
-          'https://image.wmsm.co/644942ebccdd976e0a4cf9b86844216b/musee-rodin-paris-1.jpg?quality=80&width=1280',
+      imageName: 'assets/images/dewan-kuliah-2.jpg',
     ),
     const BlockBDetails(
-      title: 'Musée Rodin',
-      details:
-          'Visit the former workshop of the founder of modern sculpting - Auguste Rodin. Opened in 1919, the Musée Rodin museum houses a great collection of his works.',
-      imageUrl:
-          'https://image.wmsm.co/644942ebccdd976e0a4cf9b86844216b/musee-rodin-paris-1.jpg?quality=80&width=1280',
+      title: 'Blockchain Technology Lab',
+      details:' ',
+      imageName: 'assets/images/blockchain-techno-lab.jpg',
     ),
     const BlockBDetails(
-      title: 'City of Paris Fine Art Museum',
+      title: 'Undergraduate Student Lounge',
       details:
-          'The City of Paris Fine Art Museum is housed in the Petit Palais in Paris, which was built for the 1900 World\'s Fair by the architect Charles Girault.',
-      imageUrl:
-          'https://image.wmsm.co/a80749b800d2cecffada73c87b236635/city-of-paris-fine-art-museum-1.jpg?quality=80&width=1280',
+          ' ',
+      imageName: 'assets/images/undergraduate-student-centre.jpg',
+    ),
+    const BlockBDetails(
+      title: 'B-1-4',
+      details: ' ',
+      imageName: 'assets/images/b-1-4.jpg',
+    ),
+    const BlockBDetails(
+      title: 'B-1-5',
+      details: ' ',
+      imageName: 'assets/images/b-1-5.jpg',
     ),
   ];
 
@@ -65,15 +67,7 @@ class _BlockBList extends StatelessWidget {
         itemCount: _blockBs.length,
         itemBuilder: (BuildContext context, int index) {
           final blockB = _blockBs[index];
-          final imageKey = GlobalKey();
-          return PinchItemContainer(
-            imageWidgetKey: imageKey,
-            imageUrl: blockB.imageUrl,
-            child: BlockBDetailsWidgetBlockB(
-              blockB: blockB,
-              imageKey: imageKey,
-            ),
-          );
+          return BlockBDetailsWidgetBlockB(blockB: blockB);
         },
       ),
     );
@@ -84,11 +78,9 @@ class BlockBDetailsWidgetBlockB extends StatelessWidget {
   const BlockBDetailsWidgetBlockB({
     Key? key,
     required this.blockB,
-    required this.imageKey,
   }) : super(key: key);
 
   final BlockBDetails blockB;
-  final GlobalKey imageKey;
 
   @override
   Widget build(BuildContext context) {
@@ -98,11 +90,7 @@ class BlockBDetailsWidgetBlockB extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            CachedNetworkImage(
-              key: imageKey,
-              imageUrl: blockB.imageUrl,
-              fit: BoxFit.cover,
-            ),
+            roomPicture(blockB.imageName),
             const SizedBox(height: 8),
             Text(
               blockB.title,
@@ -119,4 +107,13 @@ class BlockBDetailsWidgetBlockB extends StatelessWidget {
       ),
     );
   }
+}
+
+Image roomPicture(String imageName) {
+  return Image.asset(
+    imageName,
+    fit: BoxFit.fitWidth,
+    width: 300,
+    height: 300,
+  );
 }

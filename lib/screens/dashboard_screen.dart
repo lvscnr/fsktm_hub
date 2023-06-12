@@ -4,6 +4,7 @@ import 'package:fsktm_hub/screens/blocka_screen.dart';
 import 'package:fsktm_hub/utils/color_utils.dart';
 import 'blockb_screen.dart';
 
+
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
@@ -50,7 +51,7 @@ class _DashboardState extends State<Dashboard> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const blockA(),
+                  builder: (context) => const BlockA(),
                 ),
               );
             },
@@ -61,7 +62,7 @@ class _DashboardState extends State<Dashboard> {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const blockB(),
+                  builder: (context) => const BlockB(),
                 ),
               );
             },
