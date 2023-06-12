@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fsktm_hub/screens/dashboard_screen.dart';
 import 'package:fsktm_hub/screens/splash_screen.dart';
 
 void main() {
@@ -12,8 +11,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'FSKTM HUB',
+      theme: ThemeData(
+        fontFamily: 'Poppins',
+      ),
       debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
