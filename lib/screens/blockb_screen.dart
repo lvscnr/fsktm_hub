@@ -15,8 +15,8 @@ class BlockBDetails {
   final String imageUrl;
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class blockB extends StatelessWidget {
+  const blockB({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class _BlockBList extends StatelessWidget {
   static const _blockBs = const <BlockBDetails>[
     const BlockBDetails(
       title: 'Dewan Kuliah 2',
-      details:' ',
+      details: ' ',
       imageUrl:
           'https://image.wmsm.co/644942ebccdd976e0a4cf9b86844216b/musee-rodin-paris-1.jpg?quality=80&width=1280',
     ),

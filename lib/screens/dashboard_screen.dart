@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fsktm_hub/reusable_widgets/reusable_widgets.dart';
+import 'package:fsktm_hub/screens/blocka_screen.dart';
 import 'package:fsktm_hub/utils/color_utils.dart';
+import 'blockb_screen.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -39,11 +41,32 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ElevatedButton(
+            child: const Text('Block B'),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const blockB(),
+                ),
+              );
+            },
+          ),
+          ElevatedButton(
+            child: const Text('Block B'),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const blockA(),
+                ),
+              );
+            },
+          ),
+        ],
       ),
     );
   }

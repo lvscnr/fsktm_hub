@@ -1,15 +1,10 @@
 import 'package:flutter/widgets.dart';
 
-class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+class blockA extends StatelessWidget {
+  const blockA({super.key});
 
-  @override
-  State<MyWidget> createState() => _MyWidgetState();
-}
-
-class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Container();
   }
 }
