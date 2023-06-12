@@ -37,11 +37,10 @@ class _BlockBList extends StatelessWidget {
 
   static const _blockBs = const <BlockBDetails>[
     const BlockBDetails(
-      title: 'B-3-21',
-      details:
-          'The Louvre Museum in Paris is the largest art museum in the world.',
+      title: 'Dewan Kuliah 2',
+      details:' ',
       imageUrl:
-          'https://image.wmsm.co/eef1ef270f8045c067c3646caa7047b3/louvre-museum-paris-1.jpg?quality=80&width=1280',
+          'https://image.wmsm.co/644942ebccdd976e0a4cf9b86844216b/musee-rodin-paris-1.jpg?quality=80&width=1280',
     ),
     const BlockBDetails(
       title: 'Musée Rodin',
