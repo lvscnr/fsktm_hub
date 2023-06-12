@@ -17,7 +17,7 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        toolbarHeight: 250,
+        toolbarHeight: 200,
         backgroundColor: Colors.transparent,
         elevation: 0.0,
         flexibleSpace: ClipPath(
@@ -27,7 +27,7 @@ class _DashboardState extends State<Dashboard> {
             width: MediaQuery.of(context).size.width,
             color: hexStringToColor("#A478B8"),
             child: Container(
-              padding: EdgeInsets.fromLTRB(80, 80, 0, 0),
+              padding: EdgeInsets.fromLTRB(80, 90, 0, 0),
               child: Text(
                 "FSKTM Hub",
                 style: TextStyle(
@@ -41,31 +41,14 @@ class _DashboardState extends State<Dashboard> {
           ),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: ListView(
+        padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
         children: [
-          ElevatedButton(
-            child: const Text('Block A'),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const blockA(),
-                ),
-              );
-            },
+          displayimage1(context),
+          SizedBox(
+            height: 30,
           ),
-          ElevatedButton(
-            child: const Text('Block B'),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const blockB(),
-                ),
-              );
-            },
-          ),
+          displayimage2(context),
         ],
       ),
     );
