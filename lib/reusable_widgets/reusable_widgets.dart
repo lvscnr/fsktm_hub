@@ -18,6 +18,15 @@ Image logoWidgetSplash(String imageName) {
   );
 }
 
+Image roomPicture(String imageName) {
+  return Image.asset(
+    imageName,
+    fit: BoxFit.fitWidth,
+    width: 300,
+    height: 300,
+  );
+}
+
 class CustomShape extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
