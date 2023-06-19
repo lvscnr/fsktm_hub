@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fsktm_hub/reusable_widgets/navbar.dart';
+import 'package:fsktm_hub/reusable_widgets/reusable_widgets.dart';
+import 'package:fsktm_hub/utils/color_utils.dart';
 
 @immutable
 class BlockADetails {
@@ -19,11 +22,25 @@ class BlockA extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavBar(),
       appBar: AppBar(
-        title: Text('Block A'),
+        toolbarHeight: 60,
+        centerTitle: true,
+        backgroundColor: hexStringToColor("A478B8"),
+        title: Text(
+          "Block A",
+          style: TextStyle(
+            color: hexStringToColor("FFFFFF"),
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
       ),
-      backgroundColor: Colors.white70,
-      body: _BlockAList(),
+      backgroundColor: hexStringToColor("F7E7FB"),
+      body: const Padding(
+        padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+        child: _BlockAList(),
+      ),
     );
   }
 }
@@ -31,31 +48,31 @@ class BlockA extends StatelessWidget {
 class _BlockAList extends StatelessWidget {
   const _BlockAList({Key? key}) : super(key: key);
 
-  static const _blockAs = const <BlockADetails>[
-    const BlockADetails(
-      title: 'Dewan Kuliah 2',
+  static const _blockAs = <BlockADetails>[
+    BlockADetails(
+      title: 'Cube',
       details: ' ',
       imageName: 'assets/images/dewan-kuliah-2.jpg',
     ),
-    const BlockADetails(
-      title: 'Blockchain Technology Lab',
+    BlockADetails(
+      title: 'Bilik Kuliah',
       details: ' ',
       imageName: 'assets/images/blockchain-techno-lab.jpg',
     ),
-    const BlockADetails(
-      title: 'Undergraduate Student Lounge',
+    BlockADetails(
+      title: 'Postgraduate Lounge',
       details: ' ',
       imageName: 'assets/images/undergraduate-student-centre.jpg',
     ),
-    const BlockADetails(
-      title: 'A-1-4',
+    BlockADetails(
+      title: 'Micro Lab 1',
       details: ' ',
-      imageName: 'assets/images/a-1-4.jpg',
+      imageName: 'assets/images/b-1-4.jpg',
     ),
-    const BlockADetails(
-      title: 'A-1-5',
+    BlockADetails(
+      title: 'Micro Lab 2',
       details: ' ',
-      imageName: 'assets/images/a-1-5.jpg',
+      imageName: 'assets/images/b-1-5.jpg',
     ),
   ];
 
@@ -85,18 +102,27 @@ class BlockADetailsWidgetBlockA extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             roomPicture(blockA.imageName),
-            const SizedBox(height: 8),
             Text(
               blockA.title,
               textAlign: TextAlign.start,
-              style: Theme.of(context).textTheme.headline5,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: hexStringToColor("A478B8"),
+                shadows: const [
+                  Shadow(
+                    color: Colors.black26,
+                    offset: Offset(0, 0),
+                    blurRadius: 2,
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 8),
             Text(
               blockA.details,
               textAlign: TextAlign.start,
@@ -106,13 +132,4 @@ class BlockADetailsWidgetBlockA extends StatelessWidget {
       ),
     );
   }
-}
-
-Image roomPicture(String imageName) {
-  return Image.asset(
-    imageName,
-    fit: BoxFit.fitWidth,
-    width: 300,
-    height: 300,
-  );
 }

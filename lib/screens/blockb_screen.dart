@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fsktm_hub/reusable_widgets/reusable_widgets.dart';
+import 'package:fsktm_hub/utils/color_utils.dart';
+import '../reusable_widgets/navbar.dart';
 
 @immutable
 class BlockBDetails {
@@ -19,11 +22,25 @@ class BlockB extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const NavBar(),
       appBar: AppBar(
-        title: Text('Block B'),
+        toolbarHeight: 60,
+        centerTitle: true,
+        backgroundColor: hexStringToColor("A478B8"),
+        title: Text(
+          "Block B",
+          style: TextStyle(
+            color: hexStringToColor("FFFFFF"),
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
+          ),
+        ),
       ),
-      backgroundColor: Colors.white70,
-      body: _BlockBList(),
+      backgroundColor: hexStringToColor("F7E7FB"),
+      body: const Padding(
+        padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+        child: _BlockBList(),
+      ),
     );
   }
 }
@@ -31,29 +48,28 @@ class BlockB extends StatelessWidget {
 class _BlockBList extends StatelessWidget {
   const _BlockBList({Key? key}) : super(key: key);
 
-  static const _blockBs = const <BlockBDetails>[
-    const BlockBDetails(
+  static const _blockBs = <BlockBDetails>[
+    BlockBDetails(
       title: 'Dewan Kuliah 2',
       details: ' ',
       imageName: 'assets/images/dewan-kuliah-2.jpg',
     ),
-    const BlockBDetails(
+    BlockBDetails(
       title: 'Blockchain Technology Lab',
-      details:' ',
+      details: ' ',
       imageName: 'assets/images/blockchain-techno-lab.jpg',
     ),
-    const BlockBDetails(
+    BlockBDetails(
       title: 'Undergraduate Student Lounge',
-      details:
-          ' ',
+      details: ' ',
       imageName: 'assets/images/undergraduate-student-centre.jpg',
     ),
-    const BlockBDetails(
+    BlockBDetails(
       title: 'B-1-4',
       details: ' ',
       imageName: 'assets/images/b-1-4.jpg',
     ),
-    const BlockBDetails(
+    BlockBDetails(
       title: 'B-1-5',
       details: ' ',
       imageName: 'assets/images/b-1-5.jpg',
@@ -79,25 +95,33 @@ class BlockBDetailsWidgetBlockB extends StatelessWidget {
     Key? key,
     required this.blockB,
   }) : super(key: key);
-
   final BlockBDetails blockB;
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.fromLTRB(15, 5, 15, 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             roomPicture(blockB.imageName),
-            const SizedBox(height: 8),
             Text(
               blockB.title,
               textAlign: TextAlign.start,
-              style: Theme.of(context).textTheme.headline5,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: hexStringToColor("A478B8"),
+                shadows: const [
+                  Shadow(
+                    color: Colors.black26,
+                    offset: Offset(0, 0),
+                    blurRadius: 2,
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 8),
             Text(
               blockB.details,
               textAlign: TextAlign.start,
@@ -107,13 +131,4 @@ class BlockBDetailsWidgetBlockB extends StatelessWidget {
       ),
     );
   }
-}
-
-Image roomPicture(String imageName) {
-  return Image.asset(
-    imageName,
-    fit: BoxFit.fitWidth,
-    width: 300,
-    height: 300,
-  );
 }

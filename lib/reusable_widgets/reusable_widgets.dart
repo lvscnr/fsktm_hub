@@ -8,7 +8,7 @@ Image logoWidget(String imageName) {
   return Image.asset(
     imageName,
     fit: BoxFit.fitWidth,
-    width: 100,
+    width: 200,
     height: 100,
   );
 }

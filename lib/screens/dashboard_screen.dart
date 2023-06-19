@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fsktm_hub/reusable_widgets/navbar.dart';
 import 'package:fsktm_hub/reusable_widgets/reusable_widgets.dart';
 import 'package:fsktm_hub/utils/color_utils.dart';
-
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -15,55 +16,26 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      drawer: NavBar(),
       appBar: AppBar(
-        toolbarHeight: 200,
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        flexibleSpace: ClipPath(
-          clipper: CustomShape(),
-          child: Container(
-            height: 300,
-            width: MediaQuery.of(context).size.width,
-            color: hexStringToColor("#A478B8"),
-            child: Container(
-              padding: EdgeInsets.fromLTRB(80, 90, 0, 0),
-              child: Text(
-                "FSKTM Hub",
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.w700,
-                  fontSize: 40,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+        toolbarHeight: 60,
+        centerTitle: true,
+        backgroundColor: hexStringToColor("A478B8"),
+        title: Text(
+          "FSKTM HUB",
+          style: TextStyle(
+            color: hexStringToColor("FFFFFF"),
+            fontWeight: FontWeight.bold,
+            fontSize: 24,
           ),
         ),
       ),
       body: ListView(
-        padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+        padding: const EdgeInsets.fromLTRB(10, 40, 10, 0),
         children: [
-          ElevatedButton(
-            child: const Text('Block A'),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const BlockA(),
-                ),
-              );
-            },
-          ),
-          ElevatedButton(
-            child: const Text('Block B'),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const BlockB(),
-                ),
-              );
-            },
+          displayimage1(context),
+          SizedBox(
+            height: 40,
           ),
           displayimage2(context),
         ],
