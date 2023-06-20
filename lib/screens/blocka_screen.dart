@@ -52,27 +52,22 @@ class _BlockAList extends StatelessWidget {
     BlockADetails(
       title: 'Cube',
       details: ' ',
-      imageName: 'assets/images/dewan-kuliah-2.jpg',
-    ),
-    BlockADetails(
-      title: 'Bilik Kuliah',
-      details: ' ',
-      imageName: 'assets/images/blockchain-techno-lab.jpg',
+      imageName: 'assets/images/cubes.jpg',
     ),
     BlockADetails(
       title: 'Postgraduate Lounge',
       details: ' ',
-      imageName: 'assets/images/undergraduate-student-centre.jpg',
+      imageName: 'assets/images/pg-lounge.jpg',
     ),
     BlockADetails(
       title: 'Micro Lab 1',
       details: ' ',
-      imageName: 'assets/images/b-1-4.jpg',
+      imageName: 'assets/images/mm1.jpg',
     ),
     BlockADetails(
       title: 'Micro Lab 2',
       details: ' ',
-      imageName: 'assets/images/b-1-5.jpg',
+      imageName: 'assets/images/mm2.jpg',
     ),
   ];
 
