@@ -76,8 +76,7 @@ Material displayimage1(BuildContext context) {
         );
       },
       child: Ink.image(
-        image: NetworkImage(
-            'https://fsktm.um.edu.my/fsktm/images/HOME/fsktm-front.png'),
+        image: AssetImage('assets/images/blok-a.jpg'),
         height: 200,
         colorFilter:
             ColorFilter.mode(Colors.black.withOpacity(0.25), BlendMode.srcOver),
