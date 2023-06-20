@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fsktm_hub/screens/dashboard_screen.dart';
+import 'package:fsktm_hub/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Poppins',
       ),
       debugShowCheckedModeBanner: false,
-      home: Dashboard(),
+      home: SplashScreen(),
     );
   }
 }
